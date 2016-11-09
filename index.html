@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Beckleon">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="https://beckleon.github.io/index.html">
 <meta property="og:site_name" content="Beckleon">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Beckleon">
@@ -48,12 +48,12 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://beckleon.github.io"></form>
       </div>
     </div>
   </div>
@@ -96,12 +96,15 @@
 <li><p>select</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">selectSQL = <span class="string">"select distinct id, name from test"</span></div><div class="line">cur.execute(selectSQL)</div><div class="line"><span class="comment"># deal with result set</span></div><div class="line">results = cur.fetchall()</div><div class="line"><span class="keyword">for</span> r <span class="keyword">in</span> results:</div><div class="line">    id = r[<span class="number">0</span>]</div><div class="line">	name = r[<span class="number">1</span>]</div></pre></td></tr></table></figure>
 </li>
+<li><p>call procedure/function</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">procedure_name = <span class="string">"proc_test"</span></div><div class="line">args = (<span class="string">"1"</span>,<span class="string">"a"</span>)</div><div class="line">cur.callproc(proc, args)</div><div class="line"><span class="comment">#if there are results</span></div><div class="line">results = cur.stored_results()</div><div class="line"><span class="comment"># deal with result set</span></div><div class="line">results = cur.fetchall()</div><div class="line"><span class="keyword">for</span> r <span class="keyword">in</span> results:</div><div class="line">    id = r[<span class="number">0</span>]</div><div class="line">	name = r[<span class="number">1</span>]</div></pre></td></tr></table></figure>
+</li>
 </ul>
 <h3 id="close-connection"><a href="#close-connection" class="headerlink" title="close connection"></a>close connection</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cur.close()</div><div class="line">connMy.close()</div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/08/All-about-Python-and-Mysql/" data-id="civ8ytdhs0000s4tagurbgu9b" class="article-share-link">Share</a>
+      <a data-url="https://beckleon.github.io/2016/11/08/All-about-Python-and-Mysql/" data-id="civ9dg0xn000124tao1cxukdz" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -148,7 +151,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/08/hello-world/" data-id="civ8ytdhw0001s4taqnywtk31" class="article-share-link">Share</a>
+      <a data-url="https://beckleon.github.io/2016/11/08/hello-world/" data-id="civ9dg0xj000024tafqkguhj3" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -165,7 +168,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
+    <h3 class="widget-title">Catégories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorials/">Tutorials</a></li></ul>
     </div>
@@ -175,7 +178,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li></ul>
     </div>
@@ -185,7 +188,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a>
     </div>
@@ -204,7 +207,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -229,7 +232,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 beckleon<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
