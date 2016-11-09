@@ -13,7 +13,7 @@ Documentationimport package and declare cursor1234import mysql.connector as myco
 <meta property="og:site_name" content="Beckleon">
 <meta property="og:description" content="Download the ConnectorDownload Connector/Python and install it!
 Documentationimport package and declare cursor1234import mysql.connector as myconconnMy = mycon.connect(host=&apos;localhost&apos;,user=&apos;usr&apos;,pass">
-<meta property="og:updated_time" content="2016-11-08T10:44:26.771Z">
+<meta property="og:updated_time" content="2016-11-09T06:56:58.244Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="All about Python and MySQL">
 <meta name="twitter:description" content="Download the ConnectorDownload Connector/Python and install it!
@@ -101,15 +101,17 @@ Documentationimport package and declare cursor1234import mysql.connector as myco
 <li><p>select</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">selectSQL = <span class="string">"select distinct id, name from test"</span></div><div class="line">cur.execute(selectSQL)</div><div class="line"><span class="comment"># deal with result set</span></div><div class="line">results = cur.fetchall()</div><div class="line"><span class="keyword">for</span> r <span class="keyword">in</span> results:</div><div class="line">    id = r[<span class="number">0</span>]</div><div class="line">	name = r[<span class="number">1</span>]</div></pre></td></tr></table></figure>
 </li>
-<li><p>call procedure/function</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">procedure_name = <span class="string">"proc_test"</span></div><div class="line">args = (<span class="string">"1"</span>,<span class="string">"a"</span>)</div><div class="line">cur.callproc(proc, args)</div><div class="line"><span class="comment">#if there are results</span></div><div class="line">results = cur.stored_results()</div><div class="line"><span class="comment"># deal with result set</span></div><div class="line">results = cur.fetchall()</div><div class="line"><span class="keyword">for</span> r <span class="keyword">in</span> results:</div><div class="line">    id = r[<span class="number">0</span>]</div><div class="line">	name = r[<span class="number">1</span>]</div></pre></td></tr></table></figure>
+<li><p><strong>call procedure/function</strong>  <a href="http://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-callproc.html" target="_blank" rel="external">see detail</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">procedure_name = <span class="string">"proc_test"</span></div><div class="line">args = (<span class="string">"1"</span>,<span class="string">"a"</span>)</div><div class="line">cur.callproc(proc, args)</div><div class="line"><span class="comment">#if there are results</span></div><div class="line">results = cur.stored_results()</div><div class="line"><span class="comment"># deal with result set</span></div><div class="line"><span class="keyword">for</span> result <span class="keyword">in</span> results:</div><div class="line">    <span class="keyword">print</span> result.fetchall()</div><div class="line"></div><div class="line"><span class="comment">#[(1,)]</span></div><div class="line"><span class="comment">#[(2,)]</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="close-connection"><a href="#close-connection" class="headerlink" title="close connection"></a>close connection</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cur.close()</div><div class="line">connMy.close()</div></pre></td></tr></table></figure>
+<hr>
+<h1 id="专题：通过python运行包含多行语句的SQL文件"><a href="#专题：通过python运行包含多行语句的SQL文件" class="headerlink" title="专题：通过python运行包含多行语句的SQL文件"></a>专题：通过python运行包含多行语句的SQL文件</h1>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://beckleon.github.io/2016/11/08/All-about-Python-and-Mysql/" data-id="civ9dg0xn000124tao1cxukdz" class="article-share-link">Partager</a>
+      <a data-url="https://beckleon.github.io/2016/11/08/All-about-Python-and-Mysql/" data-id="civacsfs90000jctaioz3iyaa" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
