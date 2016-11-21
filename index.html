@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://beckleon.github.io"></form>
@@ -60,6 +60,45 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-工作感悟" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/11/工作感悟/" class="article-date">
+  <time datetime="2016-11-11T10:20:40.000Z" itemprop="datePublished">2016-11-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/11/工作感悟/">工作感悟</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以后尽量了解工作流程，不要因为不是自己的工作范畴就不去了解<br>知道自己的工作，也要了解同事的职责</p>
+<p>注意异常处理，自己多做测试</p>
+<p>把自己做过的东西尽量做好详细记录，方便以后查看。<br>最好每天做反思，解决技术难题</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://beckleon.github.io/2016/11/11/工作感悟/" data-id="civrr2n2g0000r4taf112s5se" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-All-about-Python-and-Mysql" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -102,11 +141,18 @@
 </ul>
 <h3 id="close-connection"><a href="#close-connection" class="headerlink" title="close connection"></a>close connection</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cur.close()</div><div class="line">connMy.close()</div></pre></td></tr></table></figure>
 <hr>
-<h1 id="专题：通过python运行包含多行语句的SQL文件"><a href="#专题：通过python运行包含多行语句的SQL文件" class="headerlink" title="专题：通过python运行包含多行语句的SQL文件"></a>专题：通过python运行包含多行语句的SQL文件</h1>
+<h1 id="专题：通过python运行包含多行语句的SQL文件"><a href="#专题：通过python运行包含多行语句的SQL文件" class="headerlink" title="专题：通过python运行包含多行语句的SQL文件"></a>专题：通过python运行包含多行语句的SQL文件</h1><h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a><strong>使用场景</strong></h3><p>有时候我们需要对多个数据库执行相同的SQL语句文件，比如：<br>有10个数据库，初始时我们要对每个库分别运行一个包括了建表、生成存储过程等SQL语句的文件<br>在后期维护时，要对其中的一个存储过程更新<br>如果要分别打开10个客户端运行存储过程语句，未免太过麻烦<br>这里使用python脚本对这10个数据库进行连接，然后分别执行这个SQL文件即可</p>
+<h3 id="关键点："><a href="#关键点：" class="headerlink" title="关键点："></a><strong>关键点：</strong></h3><p>在execute语句中加入 <strong><em>multi = True</em></strong> 参数<br>但是单纯执行 cur.execute(text, multi = True) 并不能完成查询，<a href="http://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html" target="_blank" rel="external">It returns an iterator that enables processing the result of each statement</a><br>试验之后发现加了<strong><em>multi = True</em></strong>参数之后，返回了一个<strong><em>generator</em></strong><br>所以还需要把它放进一个循环中<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> result <span class="keyword">in</span> cur.execute(text, multi=<span class="keyword">True</span>):</div><div class="line">    <span class="keyword">pass</span></div></pre></td></tr></table></figure></p>
+<h3 id="其他的坑：当SQL文件中包含中文注释或者数据时"><a href="#其他的坑：当SQL文件中包含中文注释或者数据时" class="headerlink" title="其他的坑：当SQL文件中包含中文注释或者数据时"></a>其他的坑：当SQL文件中包含中文注释或者数据时</h3><p>读取文档SQL语句运行，如果有中文会出现编码问题，如下错误：<br><strong><em>UnicodeDecodeError</em></strong>: ‘ascii’ codec can’t decode byte 0xb3 in position 462: ordinal not in range(128)<br>原因就是python的str默认是ascii编码，和unicode编码冲突<br>解决办法：加入如下代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line">reload(sys)</div><div class="line">sys.setdefaultencoding(<span class="string">'utf8'</span>)</div></pre></td></tr></table></figure></p>
+<p>代码能够运行通过，但是带来新的问题：不能使用print语句打印结果或者错误<br>无法print是因为IDLE的stdout并非是默认的stdout，所以reload(sys)之后就所有到stdout的输出就看不到了，可以考虑如下的代码在reload(sys)之后再把stdout换回去<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line">stdout = sys.stdout</div><div class="line">reload(sys)</div><div class="line">sys.stdout = stdout</div></pre></td></tr></table></figure></p>
+<p>同样的，还要对stdin, stderr做一样的处理</p>
+<p><strong>终极解决办法</strong>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line">stdout = sys.stdout</div><div class="line">stderr= sys.stderr</div><div class="line">reload(sys)  </div><div class="line">sys.setdefaultencoding(<span class="string">'utf-8'</span>)</div><div class="line">sys.stdout = stdout</div><div class="line">sys.stderr=stderr</div></pre></td></tr></table></figure></p>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><p><a href="https://github.com/beckleon/Python_programs/blob/master/Python_Mysql.py" target="_blank" rel="external">见这里</a></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://beckleon.github.io/2016/11/08/All-about-Python-and-Mysql/" data-id="civacsfs90000jctaioz3iyaa" class="article-share-link">Partager</a>
+      <a data-url="https://beckleon.github.io/2016/11/08/All-about-Python-and-Mysql/" data-id="civrr2n3q0001r4ta5eykh4zn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -153,7 +199,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://beckleon.github.io/2016/11/08/hello-world/" data-id="civacsfsd0001jctalfjy3934" class="article-share-link">Partager</a>
+      <a data-url="https://beckleon.github.io/2016/11/08/hello-world/" data-id="civrr2n4d0002r4tan3hb71qo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -170,7 +216,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Catégories</h3>
+    <h3 class="widget-title">Categories</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Tutorials/">Tutorials</a></li></ul>
     </div>
@@ -180,7 +226,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Mot-clés</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a></li></ul>
     </div>
@@ -190,7 +236,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Nuage de mot-clés</h3>
+    <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
       <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a>
     </div>
@@ -209,9 +255,13 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/11/11/工作感悟/">工作感悟</a>
+          </li>
         
           <li>
             <a href="/2016/11/08/All-about-Python-and-Mysql/">All about Python and MySQL</a>
@@ -234,7 +284,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 beckleon<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
