@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Beckleon">
-<meta property="og:url" content="https://beckleon.github.io/index.html">
+<meta property="og:url" content="https://github.com/beckleon/index.html">
 <meta property="og:site_name" content="Beckleon">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Beckleon">
@@ -53,13 +53,50 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://beckleon.github.io"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/beckleon"></form>
       </div>
     </div>
   </div>
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-XPath相关" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/02/XPath相关/" class="article-date">
+  <time datetime="2016-12-02T09:47:32.000Z" itemprop="datePublished">2016-12-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/02/XPath相关/">XPath相关</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>挖个坑，把之前Xpath遇到的问题都收集起来，总结经验</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/beckleon/2016/12/02/XPath相关/" data-id="ciw7ly7zx0001bgtax9kyt2ct" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-工作感悟" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -83,14 +120,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>以后尽量了解工作流程，不要因为不是自己的工作范畴就不去了解<br>知道自己的工作，也要了解同事的职责</p>
+        <p>尽量了解工作流程，不要因为不是自己的工作范畴就不去了解</p>
+<p>知道自己的工作，也要了解同事的职责</p>
 <p>注意异常处理，自己多做测试</p>
-<p>把自己做过的东西尽量做好详细记录，方便以后查看。<br>最好每天做反思，解决技术难题</p>
+<p>把自己做过的东西尽量做好详细记录，方便以后查看</p>
+<p>最好每天做反思，解决技术难题</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://beckleon.github.io/2016/11/11/工作感悟/" data-id="civrr2n2g0000r4taf112s5se" class="article-share-link">Share</a>
+      <a data-url="https://github.com/beckleon/2016/11/11/工作感悟/" data-id="ciw7ly7zu0000bgta67jw7hqo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -147,12 +186,12 @@
 <p>代码能够运行通过，但是带来新的问题：不能使用print语句打印结果或者错误<br>无法print是因为IDLE的stdout并非是默认的stdout，所以reload(sys)之后就所有到stdout的输出就看不到了，可以考虑如下的代码在reload(sys)之后再把stdout换回去<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line">stdout = sys.stdout</div><div class="line">reload(sys)</div><div class="line">sys.stdout = stdout</div></pre></td></tr></table></figure></p>
 <p>同样的，还要对stdin, stderr做一样的处理</p>
 <p><strong>终极解决办法</strong>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys</div><div class="line">stdout = sys.stdout</div><div class="line">stderr= sys.stderr</div><div class="line">reload(sys)  </div><div class="line">sys.setdefaultencoding(<span class="string">'utf-8'</span>)</div><div class="line">sys.stdout = stdout</div><div class="line">sys.stderr=stderr</div></pre></td></tr></table></figure></p>
-<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><p><a href="https://github.com/beckleon/Python_programs/blob/master/Python_Mysql.py" target="_blank" rel="external">见这里</a></p>
+<h3 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h3><p><a href="https://github.com/beckleon/Python_programs/blob/master/Python_Mysql.py">见这里</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://beckleon.github.io/2016/11/08/All-about-Python-and-Mysql/" data-id="civrr2n3q0001r4ta5eykh4zn" class="article-share-link">Share</a>
+      <a data-url="https://github.com/beckleon/2016/11/08/All-about-Python-and-Mysql/" data-id="ciw7ly8050003bgta5o0wgpdi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MySQL/">MySQL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
@@ -186,7 +225,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
@@ -199,7 +238,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://beckleon.github.io/2016/11/08/hello-world/" data-id="civrr2n4d0002r4tan3hb71qo" class="article-share-link">Share</a>
+      <a data-url="https://github.com/beckleon/2016/11/08/hello-world/" data-id="ciw7ly8040002bgtagx0ehonh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -247,7 +286,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li></ul>
     </div>
   </div>
 
@@ -258,6 +297,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/12/02/XPath相关/">XPath相关</a>
+          </li>
         
           <li>
             <a href="/2016/11/11/工作感悟/">工作感悟</a>
